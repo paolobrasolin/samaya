@@ -15,11 +15,14 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-htmlmin": "^1.4.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-gh-pages": "^1.1.0",
-    "grunt-jsbeautifier": "^0.2.12"
+    "grunt-inline": "^0.3.6",
+    "grunt-jsbeautifier": "^0.2.12",
+    "grunt-processhtml": "^0.4.0"
   }
 }

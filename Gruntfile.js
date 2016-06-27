@@ -3,18 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    buildFolder: 'build',
     srcFolder: 'src',
-
-    uglify: {
-      files: { 
-        src: '<%= srcFolder %>/*.js',
-        dest: '<%= buildFolder %>/',
-        expand: true,
-        flatten: true,
-        ext: '.js',
-      },
-    },
+    distFolder: 'dist',
 
     htmlmin: {
       dist: {
@@ -23,9 +13,9 @@ module.exports = function(grunt) {
           collapseWhitespace: true,
         },
         files: [{
-           cwd: '<%= srcFolder %>',
-           src: '**/*.html',
-           dest: '<%= buildFolder %>/',
+           cwd: '<%= distFolder %>',
+           src: '*.html',
+           dest: '<%= distFolder %>',
            expand: true,
         }],
       },
@@ -58,15 +48,8 @@ module.exports = function(grunt) {
       },
       all: {
         files: '<%= srcFolder %>/*',
-//        tasks: [ 'copy' ],
+        tasks: [ 'build' ],
       },
-//      scripts: {
-//        files: ['js/*.js'],
-//        tasks: ['uglify'],
-//        options: {
-//          spawn: false,
-//        },
-//      } 
     },
 
     copy: {
@@ -74,9 +57,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= srcFolder %>/',
-            src: ['**'],
-            dest: '<%= buildFolder %>/',
+            cwd: '<%= srcFolder %>',
+            src: '*.json',
+            dest: '<%= distFolder %>',
           },
         ],
       },
@@ -86,7 +69,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 1337,
-          base: 'src',
+          base: 'dist',
           livereload: true,
           open: true,
         },
@@ -95,10 +78,21 @@ module.exports = function(grunt) {
 
     'gh-pages': {
       options: {
-        base: '<%= buildFolder %>',
+        base: '<%= distFolder %>',
         message: 'Grunt-generated commit',
       },
       src: ['**'],
+    },
+
+    inline: {
+      dist: {
+        options:{
+          uglify: true,
+          cssmin: true,
+        },
+        src: 'src/index.html',
+        dest: 'dist/index.html',
+      }
     },
 
 
@@ -106,15 +100,22 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-inline');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jsbeautifier');
+
   grunt.loadNpmTasks('grunt-gh-pages');
 
+
+  grunt.registerTask('build', ['copy', 'inline', 'htmlmin']);
   grunt.registerTask('serve', ['connect', 'watch']);
-  grunt.registerTask('deploy', ['copy', 'gh-pages']);
+  grunt.registerTask('deploy', ['build', 'gh-pages']);
 
 };
 
