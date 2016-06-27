@@ -21,3 +21,11 @@ h1 {
     opacity: 1;
   }
 }
+
+iframe#player {
+    max-width: 640px !important;
+    max-height: 390px !important;
+    width: 80vw !important;
+    height: 80vh !important;
+}
+

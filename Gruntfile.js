@@ -96,6 +96,7 @@ module.exports = function(grunt) {
     'gh-pages': {
       options: {
         base: '<%= buildFolder %>',
+        message: 'Grunt-generated commit',
       },
       src: ['**'],
     },
