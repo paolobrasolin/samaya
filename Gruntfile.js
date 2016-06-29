@@ -52,18 +52,18 @@ module.exports = function(grunt) {
       },
     },
 
-    copy: {
-      main: {
-        files: [
-          {
-            expand: true,
-            cwd: '<%= srcFolder %>',
-            src: '*.json',
-            dest: '<%= distFolder %>',
-          },
-        ],
-      },
-    },
+//    copy: {
+//      main: {
+//        files: [
+//          {
+//            expand: true,
+//            cwd: '<%= srcFolder %>',
+//            src: '*.json',
+//            dest: '<%= distFolder %>',
+//          },
+//        ],
+//      },
+//    },
 
     connect: {
       server: {
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
+//  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-inline');
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-gh-pages');
 
 
-  grunt.registerTask('build', ['copy', 'inline', 'htmlmin']);
+  grunt.registerTask('build', ['inline', 'htmlmin']);
   grunt.registerTask('serve', ['connect', 'watch']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
 

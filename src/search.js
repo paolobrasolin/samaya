@@ -19,7 +19,8 @@ function onYouTubeApiLoad() {
 //  console.log ("yt player ready");
 //}
 function search() {
-  $.getJSON("ragas.json", function(json) {
+//  $.getJSON("ragas.json", function(json) {
+    var json = ragasDB;
     var name = _.sample(json.filter(function(x) {
       return x.prahar == 4;
     })).name;
@@ -33,7 +34,7 @@ function search() {
       type: 'video',
     });
     request.execute(onSearchResponse);
-  });
+//  });
 }
 // Called automatically with the response of the YouTube API request.
 function onSearchResponse(response) {

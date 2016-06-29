@@ -1,4 +1,4 @@
-[{
+var ragasDB = [{
   "name": "Ahir Lalita",
   "prahar": 1
 }, {
@@ -259,4 +259,4 @@
 }, {
   "name": "Vrndavani Saranga",
   "prahar": 8
-}]
+}];
