@@ -20,21 +20,21 @@ function onYouTubeApiLoad() {
 //}
 function search() {
 //  $.getJSON("ragas.json", function(json) {
-    var json = ragasDB;
-    var name = _.sample(json.filter(function(x) {
-      return x.prahar == 4;
-    })).name;
-    console.log(name);
-    // Use the JavaScript client library to create a search.list() API call.
-    var request = gapi.client.youtube.search.list({
-      part: 'snippet',
-      q: 'raga ' + name,
-      order: 'rating',
-      maxResults: 5,
-      type: 'video',
-    });
-    request.execute(onSearchResponse);
-//  });
+  var json = ragasDB;
+  var name = _.sample(json.filter(function(x) {
+    return x.prahar == 4;
+  })).name;
+  console.log(name);
+  // Use the JavaScript client library to create a search.list() API call.
+  var request = gapi.client.youtube.search.list({
+    part: 'snippet',
+    q: 'raga ' + name,
+    order: 'rating',
+    maxResults: 5,
+    type: 'video',
+  });
+  request.execute(onSearchResponse);
+//});
 }
 // Called automatically with the response of the YouTube API request.
 function onSearchResponse(response) {
