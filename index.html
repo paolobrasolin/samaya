@@ -1,1 +1,147 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script>var ragasDB=[{name:"Ahir Lalita",prahar:1},{name:"Bangala",prahar:1},{name:"Basanta",prahar:1},{name:"Bhankara",prahar:1},{name:"Bhatiyara",prahar:1},{name:"Hindol",prahar:1},{name:"Lalita",prahar:1},{name:"Ahir Bhairava",prahar:2},{name:"Bhairava",prahar:2},{name:"Bhairavi",prahar:2},{name:"Desakara",prahar:2},{name:"Gunakri",prahar:2},{name:"Jogiya",prahar:2},{name:"Ramakali",prahar:2},{name:"Vibhasa",prahar:2},{name:"Alankarapriya",prahar:3},{name:"Asavari",prahar:3},{name:"Bairagi",prahar:3},{name:"Bhupala Todi",prahar:3},{name:"Bilas-Khani Todi",prahar:3},{name:"Bilavala",prahar:3},{name:"Desi",prahar:3},{name:"Gujari Todi",prahar:3},{name:"Jaunpuri",prahar:3},{name:"Malgunji",prahar:3},{name:"Nata Bhairava",prahar:3},{name:"Todi",prahar:3},{name:"Dhani",prahar:4},{name:"Gaura Saranga",prahar:4},{name:"Madhuvanti",prahar:4},{name:"Madhyamad Saranga",prahar:4},{name:"Misra Gara",prahar:4},{name:"Patdipa",prahar:4},{name:"Suddha Saranga",prahar:4},{name:"Bhimphalasi",prahar:5},{name:"Carukesi",prahar:5},{name:"Maru Bihaga",prahar:5},{name:"Marwa",prahar:5},{name:"Multani",prahar:5},{name:"Namo Narayani",prahar:5},{name:"Puriya",prahar:5},{name:"Puriya Dhanasri",prahar:5},{name:"Purvi",prahar:5},{name:"Sohini",prahar:5},{name:"Sri",prahar:5},{name:"Abhogi",prahar:6},{name:"Bhupali",prahar:6},{name:"Bihag",prahar:6},{name:"Des",prahar:6},{name:"Hamsadhwani",prahar:6},{name:"Hemanta",prahar:6},{name:"Jaya Jayanti",prahar:6},{name:"Kafi",prahar:6},{name:"Khammaja",prahar:6},{name:"Mand",prahar:6},{name:"Sankara",prahar:6},{name:"Suddha Kalyana",prahar:6},{name:"Syama Kalyana",prahar:6},{name:"Tilaka Kamod",prahar:6},{name:"Tilanga",prahar:6},{name:"Yaman",prahar:6},{name:"Yaman Kalyana",prahar:6},{name:"Basanta Mukhari",prahar:7},{name:"Candani Kedar",prahar:7},{name:"Candrakauns",prahar:7},{name:"Chaya Nat",prahar:7},{name:"Darbari Kanhada",prahar:7},{name:"Durga",prahar:7},{name:"Gaurakha Kalyana",prahar:7},{name:"Hamir",prahar:7},{name:"Jhinjhoti",prahar:7},{name:"Kalavati",prahar:7},{name:"Katyayani",prahar:7},{name:"Kaushikdhwani",prahar:7},{name:"Kedar",prahar:7},{name:"Kirvani",prahar:7},{name:"Malkauns",prahar:7},{name:"Nanda",prahar:7},{name:"Ragesri",prahar:7},{name:"Sivaranjani",prahar:7},{name:"Subha Kalyana",prahar:7},{name:"Adana",prahar:8},{name:"Bagesri",prahar:8},{name:"Bahar",prahar:8},{name:"Megha",prahar:8},{name:"Puriya Kalyan",prahar:8},{name:"Vrndavani Saranga",prahar:8}];</script><script>function onClientLoad(){gapi.client.load("youtube","v3").then(function(){onYouTubeApiLoad()},function(e){console.log(e.message)})}function onYouTubeApiLoad(){gapi.client.setApiKey("AIzaSyAE3mhfMe9P05kMxbv_6ysVzFMsSLyMsC0"),search()}function search(){var e=ragasDB,o=_.sample(e.filter(function(e){return 4==e.prahar})).name;console.log(o);var n=gapi.client.youtube.search.list({part:"snippet",q:"raga "+o,order:"rating",maxResults:5,type:"video"});n.execute(onSearchResponse)}function onSearchResponse(e){var o=_.sample(e.items).id.videoId;player.loadVideoById(o)}</script><style>@import url(https://fonts.googleapis.com/css?family=Yatra+One&subset=devanagari,latin);body{text-align:center;color:#fff;background-color:#000}h1{font-family:"Yatra One";font-size:4em;color:gold;text-shadow:0 0 2em gold,0 0 1em red;animation:fadein 2s}@keyframes fadein{from{opacity:0}to{opacity:1}}iframe#player{max-width:640px!important;max-height:390px!important;width:80vw!important;height:80vh!important}</style><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script><script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script><title>SAMAYA</title></head><body><h1>&#2360;&#2350;&#2351;</h1><div id="player"></div><script>var Samay=function(){var n,t,e,o,r,u,i,a=function(){return new Promise(function(n,t){navigator.geolocation?navigator.geolocation.getCurrentPosition(n,t):t(Error("Geolocation is not supported by this browser"))})},s=function(){return new Promise(function(){a().then(function(e){return n=e.coords.latitude,t=e.coords.longitude,c("today")}).then(function(n){return o=new Date(n.results.sunrise),r=new Date(n.results.sunset),e=new Date,o>=e?c("yesterday").then(function(n){r=new Date(n.results.sunset),u=!1}):e>=r?c("tomorrow").then(function(n){o=new Date(n.results.sunrise),u=!1}):(u=!0,void 0)}).then(function(){return f()}).then(function(){})})},c=function(e){return new Promise(function(o,r){$.ajax({url:"http://api.sunrise-sunset.org/json",dataType:"json",data:{lat:n,lng:t,date:e,formatted:"0"}}).done(function(n){return o(n)}).fail(function(n,t,e){return r(t+e.message)})})},f=function(){return new Promise(function(){i=u?1+Math.floor(4*(e-o)/(r-o)):5+Math.floor(4*(e-r)/(o-r))})};return{update:s,prahar:function(){return i}}}();</script><script>function onYouTubeIframeAPIReady(){player=new YT.Player("player",{events:{}})}var tag=document.createElement("script");tag.src="https://www.youtube.com/iframe_api";var firstScriptTag=document.getElementsByTagName("script")[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);var player;</script></body></html>
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>@import url(https://fonts.googleapis.com/css?family=Yatra+One&subset=devanagari,latin);body{text-align:center;color:#fff;background-color:#000}header{font-family:"Yatra One";color:gold;text-shadow:0 0 2em gold,0 0 1em red;animation:fadein 2s}header>h1{font-size:4em;margin-bottom:0}header>p{margin-top:0}@keyframes fadein{from{opacity:0}to{opacity:1}}iframe#player{max-width:640px!important;max-height:390px!important;width:80vw!important;height:80vh!important}</style><title>SAMAYA</title></head><body><header><h1>&#2360;&#2350;&#2351;</h1><p>Prahar <span id="prahar">&mdash;</span> · Raga <span id="raga">&mdash;</span></p></header><div id="player"></div><script>// prettier-ignore
+const RAGAS_BY_PRAHAR = [
+  ["Ahir Lalita", "Bangala", "Basanta", "Bhankara", "Bhatiyara", "Hindol",
+  "Lalita"],
+  ["Ahir Bhairava", "Bhairava", "Bhairavi", "Desakara", "Gunakri", "Jogiya", "Ramakali", "Vibhasa"],
+  ["Alankarapriya", "Asavari", "Bairagi", "Bhupala Todi", "Bilas-Khani Todi", "Bilavala", "Desi", "Gujari Todi", "Jaunpuri", "Malgunji", "Nata Bhairava", "Todi"],
+  ["Dhani", "Gaura Saranga", "Madhuvanti", "Madhyamad Saranga", "Misra Gara", "Patdipa", "Suddha Saranga"],
+  ["Bhimphalasi", "Carukesi", "Maru Bihaga", "Marwa", "Multani", "Namo Narayani", "Puriya", "Puriya Dhanasri", "Purvi", "Sohini", "Sri"],
+  ["Abhogi", "Bhupali", "Bihag", "Des", "Hamsadhwani", "Hemanta", "Jaya Jayanti", "Kafi", "Khammaja", "Mand", "Sankara", "Suddha Kalyana", "Syama Kalyana", "Tilaka Kamod", "Tilanga", "Yaman", "Yaman Kalyana"],
+  ["Basanta Mukhari", "Candani Kedar", "Candrakauns", "Chaya Nat", "Darbari Kanhada", "Durga", "Gaurakha Kalyana", "Hamir", "Jhinjhoti", "Kalavati", "Katyayani", "Kaushikdhwani", "Kedar", "Kirvani", "Malkauns", "Nanda", "Ragesri", "Sivaranjani", "Subha Kalyana"],
+  ["Adana", "Bagesri", "Bahar", "Megha", "Puriya Kalyan", "Vrndavani Saranga"],
+]
+
+var fetchCoordinates = function() {
+  return new Promise(function(resolve, reject) {
+    console.debug("Fetching coordinates");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    } else {
+      reject(Error("Geolocation is not supported by this browser"));
+    }
+  }).then(currentPosition => {
+    return {
+      lat: currentPosition.coords.latitude,
+      lng: currentPosition.coords.longitude
+    };
+  });
+};
+
+var fetchTwilights = function(date, lat, lng) {
+  console.debug("Fetching twilights for", { date, lat, lng });
+  const params = { date, lat, lng, formatted: "0" };
+  const urlParams = new URLSearchParams(Object.entries(params));
+  return fetch("https://api.sunrise-sunset.org/json?" + urlParams).then(
+    response => {
+      return response.json();
+    }
+  );
+};
+
+const calculatePrahar = async function() {
+  const { lat, lng } = await fetchCoordinates();
+
+  const now = new Date();
+  console.debug("Current time:", now);
+
+  const tdyResponse = await fetchTwilights("today", lat, lng);
+  const tdySunrise = new Date(tdyResponse.results.sunrise);
+  const tdySunset = new Date(tdyResponse.results.sunset);
+
+  if (now < tdySunrise) {
+    console.debug("Current time is before today's sunrise.");
+    const ydaResponse = await fetchTwilights("yesterday", lat, lng);
+    var prevTwilight = new Date(ydaResponse.results.sunset);
+    var nextTwilight = tdySunrise;
+    var daytime = false;
+  } else if (tdySunset <= now) {
+    console.debug("Current time is after today's sunset.");
+    const tmwResponse = await fetchTwilights("tomorrow", lat, lng);
+    var prevTwilight = new Date(tmwResponse.results.sunrise);
+    var nextTwilight = tmwSunrise;
+    var daytime = false;
+  } else {
+    console.debug("Current time is during today's daytime.");
+    var prevTwilight = tdySunrise;
+    var nextTwilight = tdySunset;
+    var daytime = true;
+  }
+
+  const prahar =
+    (daytime ? 1 : 5) +
+    Math.floor((4 * (now - prevTwilight)) / (nextTwilight - prevTwilight));
+  console.debug(`Current time has prahar ${prahar}`);
+  return prahar;
+};
+
+function sample(items) {
+  return items[Math.floor(Math.random() * items.length)];
+}
+
+function promisedScriptLoad(src, callbackName) {
+  return new Promise(function(resolve, reject) {
+    const script = document.createElement("script");
+    script.src = src;
+    document.querySelector("head").prepend(script);
+    window[callbackName] = resolve;
+  });
+}
+
+const setupPlayer = async function() {
+  // Loads the IFrame Player API code asynchronously.
+  // Will call `onYouTubeIframeAPIReady` when done.
+  await promisedScriptLoad(
+    "https://www.youtube.com/iframe_api",
+    "onYouTubeIframeAPIReady"
+  );
+  return new Promise(function(resolve, reject) {
+    new YT.Player("player", {
+      events: { onReady: event => resolve(event.target) }
+    });
+  });
+};
+
+const setupGAPI = async function() {
+  // Loads the Google API Client code asynchronously.
+  // Will call `onClientLoad` when done.
+  await promisedScriptLoad(
+    "https://apis.google.com/js/client.js?onload=onClientLoad",
+    "onClientLoad"
+  );
+  console.debug("Google API Client loaded.");
+  await gapi.client.load("youtube", "v3");
+  // See http://goo.gl/PdPA1 to get a key for your own applications.
+  gapi.client.setApiKey("AIzaSyAE3mhfMe9P05kMxbv_6ysVzFMsSLyMsC0");
+};
+
+const main = async function() {
+  const [prahar, player] = await Promise.all([
+    calculatePrahar(),
+    setupPlayer(),
+    setupGAPI()
+  ]);
+
+  let ragaName = undefined
+  let randomMatch = undefined;
+
+  do {
+    ragaName = sample(RAGAS_BY_PRAHAR[prahar - 1]);
+    var request = gapi.client.youtube.search.list({
+      part: "snippet",
+      q: "raga " + ragaName,
+      order: "rating",
+      maxResults: 5,
+      type: "video"
+    });
+    var response = await request.getPromise();
+    randomMatch = sample(response.result.items);
+  } while (!randomMatch);
+
+  console.debug("Chosen raga is", ragaName);
+
+  document.getElementById("prahar").textContent = prahar;
+  document.getElementById("raga").textContent = ragaName;
+  player.loadVideoById(randomMatch.id.videoId);
+};
+
+main();</script></body></html>
