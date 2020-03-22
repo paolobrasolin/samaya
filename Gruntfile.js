@@ -54,7 +54,7 @@ module.exports = function(grunt) {
     inline: {
       dist: {
         options: {
-          uglify: true,
+          // uglify: true, // NOTE: does not support ES6
           cssmin: true
         },
         src: "src/index.html",

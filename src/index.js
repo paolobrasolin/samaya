@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>@import url(https://fonts.googleapis.com/css?family=Yatra+One&subset=devanagari,latin);body{text-align:center;color:#fff;background-color:#000}header{font-family:"Yatra One";color:gold;text-shadow:0 0 2em gold,0 0 1em red;animation:fadein 2s}header>h1{font-size:4em;margin-bottom:0}header>p{margin-top:0}@keyframes fadein{from{opacity:0}to{opacity:1}}iframe#player{max-width:640px!important;max-height:390px!important;width:80vw!important;height:80vh!important}</style><title>SAMAYA</title></head><body><header><h1>&#2360;&#2350;&#2351;</h1><p>Prahar <span id="prahar">&mdash;</span> · Raga <span id="raga">&mdash;</span></p></header><div id="player"></div><script>// prettier-ignore
+// prettier-ignore
 const RAGAS_BY_PRAHAR = [
   ["Ahir Lalita", "Bangala", "Basanta", "Bhankara", "Bhatiyara", "Hindol",
   "Lalita"],
@@ -144,4 +144,4 @@ const main = async function() {
   player.loadVideoById(randomMatch.id.videoId);
 };
 
-main();</script></body></html>
+main();

@@ -6,12 +6,20 @@ body {
   background-color: black;
 }
 
-h1 {
+header {
   font-family: "Yatra One";
-  font-size: 4em;
   color: gold;
   text-shadow: 0 0 2em gold, 0 0 1em red;
   animation: fadein 2s;
+}
+
+header > h1 {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+header > p {
+  margin-top: 0;
 }
 
 @keyframes fadein {
